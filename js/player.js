@@ -1,3 +1,4 @@
+import { Sitting } from './js/playerState.js';
 export class Player {
     constructor(game){
         this.game = game;
