@@ -8,14 +8,14 @@ import { UI } from '/js/UI.js';
 window.addEventListener('load', function(){
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
-    canvas.width = 1000;
+    canvas.width = 1200;
     canvas.height = 500;
 
     class Game {
         constructor(width, height){
             this.width = width;
             this.height = height;
-            this.groundMargin = 80;
+            this.groundMargin = 40;
             this.speed = 0;
             this.maxSpeed = 3;
             this.background = new Background(this);
@@ -31,10 +31,10 @@ window.addEventListener('load', function(){
             this.enemyInterval = 1000;
             this.debug = false;
             this.score = 0;
-            this.winningScore = 40;
+            this.winningScore = 50;
             this.fontColor = 'black';
             this.time = 0;
-            this.maxTime = 30000;
+            this.maxTime = 60000;
             this.gameOver = false;
             this.lives = 5;
             this.player.currentState = this.player.states[0];

@@ -61,7 +61,7 @@ export class GroundEnemy extends Enemy {
         this.image = document.getElementById('enemy_plant');
         this.speedX = 0;
         this.speedY = 0;
-        this.maxFrame = 1;
+        this.maxFrame = 3;
 
     }
 }

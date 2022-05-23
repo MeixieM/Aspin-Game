@@ -64,7 +64,7 @@ export class Splash extends Particle {
         this.speedX = Math.random() * 6 - 4;
         this.speedY = Math.random() * 2 + 1;
         this.gravity = 0;
-        this.image = document.getElementById('fire');
+        this.image = document.getElementById('splash');
 
     }
     update(){
