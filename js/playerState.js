@@ -41,7 +41,7 @@ export class Running extends State {
     }
     enter(){
         this.game.player.frameX = 0;
-        this.game.player.maxFrame = 8;
+        this.game.player.maxFrame = 6;
         this.game.player.frameY = 3;
     }
     handleInput(input){
@@ -147,7 +147,7 @@ export class Hit extends State {
     }
     enter(){
         this.game.player.frameX = 0;
-        this.game.player.maxFrame = 10;
+        this.game.player.maxFrame = 1;
         this.game.player.frameY = 4;
     }
     handleInput(input){
