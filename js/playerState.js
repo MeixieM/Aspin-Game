@@ -65,9 +65,12 @@ export class Jumping extends State {
         this.game.player.frameX = 0;
         this.game.player.maxFrame = 6;
         this.game.player.frameY = 1;
+        this.sound = new Audio();
+        this.sound.src = 'audio/dog bark 2.mp3';
     }
     handleInput(input){
-        if(this.game.player.vy > this.game.player.weight){
+        this.sound.play();
+        if(this.game.player.vy > this.game.player.weight) {
             this.game.player.setState(states.FALLING, 1);
         } else if(input.includes(' ')){
             this.game.player.setState(states.ROLLING, 2);
@@ -98,16 +101,21 @@ export class Falling extends State {
 export class Rolling extends State {
     constructor(game){
         super('ROLLING', game);
+
     }
     enter(){
         this.game.player.frameX = 0;
         this.game.player.maxFrame = 6;
         this.game.player.frameY = 6;
+        this.sound = new Audio();
+        this.sound.src = 'audio/dog bark 1.mp3';
+        
     }
     handleInput(input){
         this.game.particles.unshift(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5, this.game.player.y + this.game.player.height * 0.5));
         if(!input.includes(' ') && this.game.player.onGround()){
             this.game.player.setState(states.RUNNING, 1);
+            this.sound.play();
         }  else if(!input.includes(' ') && !this.game.player.onGround()){
             this.game.player.setState(states.FALLING, 1);
         } else if(input.includes(' ') && input.includes('ArrrowUp') && this.game.player.onGround()){
@@ -147,14 +155,19 @@ export class Hit extends State {
     }
     enter(){
         this.game.player.frameX = 0;
-        this.game.player.maxFrame = 1;
+        this.game.player.maxFrame = 10;
         this.game.player.frameY = 4;
+        this.sound = new Audio();
+        this.sound.src = 'audio/dog hurt.ogg';
     }
     handleInput(input){
         if(this.game.player.frameX >= 10 && this.game.player.onGround()){
             this.game.player.setState(states.RUNNING, 1);
+            this.sound.play();
         }  else if(this.game.player.frameX >= 10 && !this.game.player.onGround()){
             this.game.player.setState(states.FALLING, 1);
+            this.sound.play();
+            
         } 
     }
 }

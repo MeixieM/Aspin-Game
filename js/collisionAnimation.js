@@ -15,15 +15,20 @@ export class CollisionAnimation{
         this.fps = Math.random() * 10 + 5;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
+        this.sound = new Audio();
+        this.sound.src = 'audio/impactsplat02.mp3.ogg';
+
     }
     draw(context){
         context.drawImage(this.image, this.frameX * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
     }
     update(deltaTime){
+        if (this.frameX === 0) this.sound.play();
         this.x -= this.game.speed;
         if(this.frameTimer > this.frameInterval){
             this.frameX++;
             this.frameTimer = 0;
+           
         } else {
             this.frameTimer += deltaTime;
         }
